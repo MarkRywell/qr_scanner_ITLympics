@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:qr_scanner_itlympics/views/qr_scanner.dart';
+
 class HomePage extends StatefulWidget {
 
   const HomePage({Key? key}) : super(key: key);
@@ -17,13 +19,21 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         padding: const EdgeInsets.all(8),
-        child: Center(
-          child: ElevatedButton(
-            onPressed: () {
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context) => QRScanner()
+                    ));
+              },
+              child: const Text("QR Scanner"),
+            ),
+            SizedBox(height: 50),
 
-            },
-            child: const Text("QR Scanner"),
-          ),
+          ],
         )
       )
     );

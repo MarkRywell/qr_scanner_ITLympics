@@ -17,6 +17,9 @@ class DataPage extends StatefulWidget {
 class _DataPageState extends State<DataPage> {
   @override
   Widget build(BuildContext context) {
+
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("QR Code Data"),
@@ -29,19 +32,43 @@ class _DataPageState extends State<DataPage> {
           },
         )
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text("Scanned Code:"),
-              const SizedBox(height: 20),
-              Text(widget.value)
-            ],
-          ),
+      body: Container(
+        height: size.height * 0.8,
+        width: size.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/ej.png'),
+            fit: BoxFit.fitHeight
+          )
         ),
-      )
+          child: Padding(
+            padding: const EdgeInsets.only(top: 80),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text("Na Scan na imong QR Ferson",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold
+                    )
+                ),
+                const SizedBox(height: 20),
+                const Text("Scanned Code:",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold
+                )),
+                const SizedBox(height: 20),
+                Text(widget.value,
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold
+                    ))
+              ],
+            ),
+          ),
+        )
     );
   }
 }

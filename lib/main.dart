@@ -12,7 +12,7 @@ void main() {
         home: AnimatedSplashScreen(
           splash: CustomSplash(),
           splashIconSize: 1000,
-          duration: 3000,
+          duration: 4000,
           nextScreen: const HomePage(),
           splashTransition: SplashTransition.fadeTransition,
           pageTransitionType: PageTransitionType.leftToRightWithFade,

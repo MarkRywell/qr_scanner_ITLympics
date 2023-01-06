@@ -32,41 +32,12 @@ class _DataPageState extends State<DataPage> {
           },
         )
       ),
-      body: Container(
-        height: size.height * 0.8,
-        width: size.width,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/ej.png'),
-            fit: BoxFit.fitHeight
-          )
-        ),
-          child: Padding(
-            padding: const EdgeInsets.only(top: 80),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const Text("Na Scan na imong QR Ferson",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold
-                    )
-                ),
-                const SizedBox(height: 20),
-                const Text("Scanned Code:",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold
-                )),
-                const SizedBox(height: 20),
-                Text(widget.value,
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold
-                    ))
-              ],
-            ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+
+            ],
           ),
         )
     );

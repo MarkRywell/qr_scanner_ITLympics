@@ -28,10 +28,8 @@ class CustomSplash extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 200),
-
-
             const VerticalDivider(width: 50),
-            const Text("Powered by ",
+            const Text("Developed by ",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontSize: 14,

@@ -23,7 +23,6 @@ class Api {
       "year" : student.year
     };
 
-
     var url = Uri.parse("");
 
     var response = await http.post(url, body: convert.jsonEncode(data),
@@ -31,14 +30,7 @@ class Api {
       "Content-type" : "application/json"
     });
 
-    if(response.statusCode == 201) {
-      var jsonResponse = convert.jsonDecode(response.body);
-      return jsonResponse;
-    }
-    else{
-      Exception("Error with a status code: ${response.statusCode}");
-    }
-
+    return response.statusCode;
   }
 
 }

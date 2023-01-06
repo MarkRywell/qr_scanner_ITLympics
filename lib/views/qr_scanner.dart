@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:qr_scanner_itlympics/models/student.dart';
 import 'package:qr_scanner_itlympics/views/data_page.dart';
 
 class QRScanner extends StatefulWidget {
@@ -14,15 +15,37 @@ class _QRScannerState extends State<QRScanner> {
   MobileScannerController cameraController = MobileScannerController();
   bool screenOpened = false;
 
-  void foundBarcode(Barcode barcode, MobileScannerArguments? args) {
+  void foundBarcode(Barcode barcode, MobileScannerArguments? args) async {
 
     if (!screenOpened) {
       final String code = barcode.rawValue ?? "----";
-      debugPrint('Barcode found! $code');
       screenOpened = true;
+
+      List splitData = code.split(', ');
+      List courseYear = splitData[2].split('- ');
+      int year;
+      if(courseYear[1].contains("1st Year")){
+        year = 1;
+      }
+      else if (courseYear[1].contains("2nd Year")){
+        year = 2;
+      }
+      else if (courseYear[1].contains("3rd Year")){
+        year = 3;
+      }
+      else {
+        year = 4;
+      }
+      Student student = Student(
+        id: int.parse(splitData[0]),
+        name: splitData[1],
+        course: courseYear[0],
+        year: year
+      );
+
       Navigator.push(context,
           MaterialPageRoute(
-              builder: (context) => DataPage(screenClosed: screenWasClosed, value: code)
+              builder: (context) => DataPage(screenClosed: screenWasClosed, student: student)
           ));
     }
   }

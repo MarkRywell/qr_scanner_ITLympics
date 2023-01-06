@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scanner_itlympics/views/data_page.dart';
 
 import 'package:qr_scanner_itlympics/views/qr_scanner.dart';
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(
-                              builder: (context) => QRScanner()
+                              builder: (context) => const QRScanner()
                           ));
                     },
                     child: const Text("QR Scanner"),

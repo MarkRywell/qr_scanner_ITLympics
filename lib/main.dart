@@ -8,7 +8,7 @@ void main() {
   runApp(
         MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: AnimatedSplashScreen(
+        home: AnimatedSplashScreen( //splashscreen
           splash: const CustomSplash(),
           splashIconSize: 1000,
           duration: 4000,

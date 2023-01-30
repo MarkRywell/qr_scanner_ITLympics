@@ -11,7 +11,6 @@ class Api {
   Api.privateConstructor();
   static final Api instance = Api.privateConstructor();
 
-
   //Add student to attendance
 
   Future <dynamic> addStudent(Student student) async {

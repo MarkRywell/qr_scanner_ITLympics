@@ -14,28 +14,49 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("IT Attendance App"),
-        ),
         body: Container(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(
-                              builder: (context) => const QRScanner()
-                          ));
-                    },
-                    child: const Text("QR Scanner"),
+            padding: const EdgeInsets.symmetric(vertical: 50),
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    width: size.width * 0.9,
+                    height: size.height * 0.4,
+                    margin: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black)
+                    ),
+                    child: Center(
+                      child: Text("Intro Text Here"),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 50),
-              ],
+                  SizedBox(height: 100),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: SizedBox(
+                      height: 50,
+                      width: size.width * 0.4,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(
+                                  builder: (context) => const QRScanner()
+                              ));
+                        },
+                        child: const Text("QR Scanner",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                ],
+              ),
             )
         )
     );

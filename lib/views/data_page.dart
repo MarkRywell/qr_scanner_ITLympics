@@ -90,14 +90,14 @@ class _DataPageState extends State<DataPage> {
                   child: ElevatedButton(
                     onPressed: () async {
 
-                     var response = Api.instance.addStudent(widget.student);
+                     var response = await Api.instance.addStudent(widget.student);
 
-                     if(response == 201) {
-                       showStatus(color: Colors.greenAccent, text: "Student Added");
+                     if(response[1] == 201) {
+                       showStatus(color: Colors.greenAccent, text: response[0].message);
                        Navigator.pop(context);
                      }
                      else {
-                       showStatus(color: Colors.redAccent, text: "Attendance Error");
+                       showStatus(color: Colors.redAccent, text: response[0].message);
                      }
 
                     },

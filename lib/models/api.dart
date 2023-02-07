@@ -15,26 +15,25 @@ class Api {
   Future <dynamic> addStudent(Student student) async {
 
     Map data = {
-      "id" : student.id,
+      "day" : student.day,
+      "student_id" : student.student_id,
       "name" : student.name,
       "course" : student.course,
       "year" : student.year
     };
 
+    print(data);
+
     final pref = await SharedPreferences.getInstance();
 
     String serverIP = pref.getString("server")!;
 
-    print(serverIP);
-
-    var url = Uri.parse("http://$serverIP:8000/api/student");
+    var url = Uri.parse("http://$serverIP/student");
 
     var response = await http.post(url, body: convert.jsonEncode(data),
     headers: {
       "Content-type" : "application/json"
     });
-
-    print(response.body);
 
     var jsonResponse = await convert.jsonDecode(response.body);
 

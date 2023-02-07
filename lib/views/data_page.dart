@@ -74,7 +74,7 @@ class _DataPageState extends State<DataPage> {
                   ),
                   child: Column(
                     children: [
-                      CustomText(textTitle: "Student ID: ", textData: widget.student.id.toString()),
+                      CustomText(textTitle: "Student ID: ", textData: widget.student.student_id.toString()),
                       CustomText(textTitle: "Student Name: ", textData: widget.student.name),
                       CustomText(textTitle: "Course: ", textData: widget.student.course),
                       CustomText(textTitle: "Year: ", textData: widget.student.year.toString())

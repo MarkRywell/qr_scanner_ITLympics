@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_scanner_itlympics/models/student.dart';
 import 'package:qr_scanner_itlympics/views/data_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QRScanner extends StatefulWidget {
   const QRScanner({Key? key}) : super(key: key);
@@ -36,8 +37,12 @@ class _QRScannerState extends State<QRScanner> {
       else {
         year = 4;
       }
+
+      final pref = await SharedPreferences.getInstance();
+
       Student student = Student(
-        id: int.parse(splitData[0]),
+        day: pref.getString('day')!,
+        student_id: int.parse(splitData[0]),
         name: splitData[1],
         course: courseYear[0],
         year: year

@@ -70,7 +70,9 @@ class _HomePageState extends State<HomePage> {
                           border: Border.all(color: Colors.black)
                       ),
                       child: const Center(
-                        child: Text("Intro Text Here"),
+                        child: Text("This Attendance Scanner is for ITLYMPICS "
+                            "purposes only. This is to track all the students "
+                            "who attended the said activity and more."),
                       ),
                     ),
                     const SizedBox(height: 100),

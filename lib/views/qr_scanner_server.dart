@@ -71,7 +71,6 @@ class _QrScannerServerState extends State<QrScannerServer> {
                             pref.setString("server", splitData[0]);
                             pref.setString("day", splitData[1]);
 
-                            screenWasClosed();
                             Navigator.pop(context);
                             Navigator.pop(context);
                             showStatus(color: Colors.blue, text: "Server: ${splitData[0]} : ${splitData[1]}");

@@ -63,33 +63,32 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Container(
-                      width: size.width * 0.9,
-                      height: size.height * 0.4,
                       margin: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black)
-                      ),
-                      child: const Center(
-                        child: Text("This Attendance Scanner is for ITLYMPICS "
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Text("This Attendance Scanner is for ITLYMPICS "
                             "purposes only. This is to track all the students "
-                            "who attended the said activity and more."),
-                      ),
+                            "who attended the said activity and more.",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                          height: 1.5,
+                          fontSize: 16
+                        )),
                     ),
-                    const SizedBox(height: 100),
+                    const SizedBox(height: 50),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: SizedBox(
                         height: 50,
                         width: size.width * 0.4,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.indigo[900],
+                          ),
                           onPressed: () async {
                             await Navigator.push(context,
                                 MaterialPageRoute(
                                     builder: (context) => const QrScannerServer()
                                 ));
-                            setState(() {
-                              ipValidity = true;
-                            });
                             getServerIP();
                           },
                           child: const Text("Scan Event",
@@ -107,6 +106,9 @@ class _HomePageState extends State<HomePage> {
                         height: 50,
                         width: size.width * 0.4,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.indigo[900],
+                          ),
                           onPressed: ipValidity ? () {
                             Navigator.push(context,
                                 MaterialPageRoute(

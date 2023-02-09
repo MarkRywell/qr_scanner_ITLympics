@@ -52,12 +52,12 @@ class _QrScannerServerState extends State<QrScannerServer> {
                 children: [
                   Text(serverInfo[0],
                   style: const TextStyle(
-                    fontSize: 16
+                    fontSize: 18
                   ),),
                   const SizedBox(height: 20),
                   Text(splitData[1],
                   style: const TextStyle(
-                    fontSize: 16
+                    fontSize: 18
                   ),),
                   const SizedBox(height: 50),
                   ClipRRect(
@@ -66,6 +66,9 @@ class _QrScannerServerState extends State<QrScannerServer> {
                       width: size.width * 0.5,
                       height: 40,
                       child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.indigo[900],
+                          ),
                           onPressed: () async {
                             final pref = await SharedPreferences.getInstance();
                             pref.setString("server", splitData[0]);
@@ -73,7 +76,7 @@ class _QrScannerServerState extends State<QrScannerServer> {
 
                             Navigator.pop(context);
                             Navigator.pop(context);
-                            showStatus(color: Colors.blue, text: "Server: ${splitData[0]} : ${splitData[1]}");
+                            showStatus(color: Colors.blue, text: "Server: ${serverInfo[0]} : ${splitData[1]}");
                             // Navigator.push(context, MaterialPageRoute(
                             //   builder: (context) => const HomePage()
                             // ));
@@ -114,6 +117,7 @@ class _QrScannerServerState extends State<QrScannerServer> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.indigo[900],
           title: const Text("Scan Server QR"),
           actions: [
             IconButton(

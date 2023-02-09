@@ -41,7 +41,8 @@ class _DataPageState extends State<DataPage> {
 
     return Scaffold(
         appBar: AppBar(
-            title: const Text("QR Code Data"),
+            backgroundColor: Colors.indigo[900],
+            title: const Text("Student Data"),
             centerTitle: true,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_outlined),
@@ -88,6 +89,9 @@ class _DataPageState extends State<DataPage> {
                   height: 40,
                   width: size.width * 0.6,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo[900],
+                    ),
                     onPressed: () async {
 
                      var response = await Api.instance.addStudent(widget.student);

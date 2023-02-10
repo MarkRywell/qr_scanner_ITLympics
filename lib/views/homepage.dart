@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_itlympics/views/data_page.dart';
-
 import 'package:qr_scanner_itlympics/views/qr_scanner.dart';
 import 'package:qr_scanner_itlympics/views/qr_scanner_server.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -17,31 +17,45 @@ class _HomePageState extends State<HomePage> {
 
   bool ipValidity = false;
   String? serverIPAddress;
+  String? date;
+  String? day;
 
-    //
-    // setServerIP(String IP) async {
-    //   final pref = await SharedPreferences.getInstance();
-    //
-    //   pref.setString("server", IP);
-    //
-    //   setState(() {
-    //     ipValidity = true;
-    //   });
-    //
-    //   print(pref.getString("server"));
-    // }
+  Map dayDate = {
+    "Day 1" : "February 6, 2023",
+    "Day 2" : "February 7, 2023",
+    "Day 3" : "February 8, 2023",
+    "Day 4" : "February 9, 2023",
+    "Day 5" : "February 10, 2023",
+  };
+
   getServerIP() async {
     final pref = await SharedPreferences.getInstance();
 
-    if(pref.getString("server") == null) {
+    String? savedDate = pref.getString("date");
+    String? savedDay = pref.getString("day");
+    String? serverIP = pref.getString("server");
+
+    String currentDate = DateFormat('MMMM d, yyyy').format(DateTime.now());
+
+
+
+    setState(() {
+      date = savedDate;
+      day = savedDay;
+    });
+
+    print(currentDate);
+    print(savedDate);
+
+    if(pref.getString("server") == null || currentDate != savedDate) {
       return;
     }
 
-    String? serverIP = pref.getString("server");
     setState(() {
       serverIPAddress = serverIP;
       ipValidity = true;
     });
+
   }
 
   @override
@@ -62,6 +76,24 @@ class _HomePageState extends State<HomePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    Container(
+                      margin: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(day ?? "",
+                      style: const TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold
+                      ),),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(date ?? "",
+                        style: const TextStyle(
+                            fontSize: 24
+                        ),),
+                    ),
+                    SizedBox(height: 50),
                     Container(
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.symmetric(horizontal: 20),

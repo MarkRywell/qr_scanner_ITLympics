@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_scanner_itlympics/views/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/intl.dart';
 
 class QrScannerServer extends StatefulWidget {
   const QrScannerServer({Key? key}) : super(key: key);
@@ -33,6 +34,7 @@ class _QrScannerServerState extends State<QrScannerServer> {
         context: context,
         useSafeArea: true,
         builder: (BuildContext context) {
+
           Size size = MediaQuery.of(context).size;
 
           return AlertDialog(
@@ -70,9 +72,13 @@ class _QrScannerServerState extends State<QrScannerServer> {
                             backgroundColor: Colors.indigo[900],
                           ),
                           onPressed: () async {
+
+                            String currentDate = DateFormat('MMMM d, yyyy').format(DateTime.now());
+
                             final pref = await SharedPreferences.getInstance();
                             pref.setString("server", splitData[0]);
                             pref.setString("day", splitData[1]);
+                            pref.setString("date", currentDate);
 
                             Navigator.pop(context);
                             Navigator.pop(context);

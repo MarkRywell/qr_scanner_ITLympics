@@ -20,14 +20,6 @@ class _HomePageState extends State<HomePage> {
   String? date;
   String? day;
 
-  Map dayDate = {
-    "Day 1" : "February 6, 2023",
-    "Day 2" : "February 7, 2023",
-    "Day 3" : "February 8, 2023",
-    "Day 4" : "February 9, 2023",
-    "Day 5" : "February 10, 2023",
-  };
-
   getServerIP() async {
     final pref = await SharedPreferences.getInstance();
 
@@ -97,14 +89,29 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: const Text("This Attendance Scanner is for ITLYMPICS "
-                            "purposes only. This is to track all the students "
-                            "who attended the said activity and more.",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          height: 1.5,
-                          fontSize: 16
-                        )),
+                        child: Column(
+                          children: const [
+                            Text("Eyes here, Lycan!",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              height: 1.5,
+                              fontSize: 14
+                            )),
+                            SizedBox(height: 50),
+                            Text("Were you howling with excitement at Lycan Fest? "
+                                "Let us know! We'll be tracking attendance to make "
+                                "sure no one misses out. This attendance scanner is "
+                                "for the use of LYCAN FEST 2023 only. Be sure to mark "
+                                "your attendance here and let's double the fun.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    height: 1.5,
+                                    fontSize: 14
+                                )),
+
+
+                          ],
+                        ),
                     ),
                     const SizedBox(height: 50),
                     ClipRRect(
@@ -114,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                         width: size.width * 0.4,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.indigo[900],
+                            backgroundColor: Colors.brown[700],
                           ),
                           onPressed: () async {
                             await Navigator.push(context,
@@ -139,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         width: size.width * 0.4,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.indigo[900],
+                            backgroundColor: Colors.brown[700],
                           ),
                           onPressed: ipValidity ? () {
                             Navigator.push(context,

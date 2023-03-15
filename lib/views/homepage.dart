@@ -20,14 +20,6 @@ class _HomePageState extends State<HomePage> {
   String? date;
   String? day;
 
-  Map dayDate = {
-    "Day 1" : "February 6, 2023",
-    "Day 2" : "February 7, 2023",
-    "Day 3" : "February 8, 2023",
-    "Day 4" : "February 9, 2023",
-    "Day 5" : "February 10, 2023",
-  };
-
   getServerIP() async {
     final pref = await SharedPreferences.getInstance();
 
@@ -72,6 +64,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         body: Container(
             padding: const EdgeInsets.symmetric(vertical: 50),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/logo1.png"),
+                opacity: 0.2
+              )
+            ),
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
@@ -97,14 +95,25 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: const Text("This Attendance Scanner is for ITLYMPICS "
-                            "purposes only. This is to track all the students "
-                            "who attended the said activity and more.",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          height: 1.5,
-                          fontSize: 16
-                        )),
+                        child: Column(
+                          children: const [
+                            Text("Attendance QR Scanner",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              height: 1.5,
+                              fontSize: 14
+                            )),
+                            SizedBox(height: 50),
+                            Text("This application is intended for taking attendance of USTP students during the event.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    height: 1.5,
+                                    fontSize: 14
+                                )),
+
+
+                          ],
+                        ),
                     ),
                     const SizedBox(height: 50),
                     ClipRRect(
@@ -114,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                         width: size.width * 0.4,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.indigo[900],
+                            backgroundColor: Colors.brown[700],
                           ),
                           onPressed: () async {
                             await Navigator.push(context,
@@ -139,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                         width: size.width * 0.4,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.indigo[900],
+                            backgroundColor: Colors.brown[700],
                           ),
                           onPressed: ipValidity ? () {
                             Navigator.push(context,

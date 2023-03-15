@@ -69,7 +69,7 @@ class _QrScannerServerState extends State<QrScannerServer> {
                       height: 40,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.indigo[900],
+                            backgroundColor: Colors.brown[700],
                           ),
                           onPressed: () async {
 
@@ -123,7 +123,7 @@ class _QrScannerServerState extends State<QrScannerServer> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.indigo[900],
+          backgroundColor: Colors.brown[700],
           title: const Text("Scan Server QR"),
           actions: [
             IconButton(

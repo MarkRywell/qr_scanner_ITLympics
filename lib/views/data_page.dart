@@ -41,7 +41,7 @@ class _DataPageState extends State<DataPage> {
 
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.indigo[900],
+            backgroundColor: Colors.brown[700],
             title: const Text("Student Data"),
             centerTitle: true,
             leading: IconButton(
@@ -90,7 +90,7 @@ class _DataPageState extends State<DataPage> {
                   width: size.width * 0.6,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.indigo[900],
+                      backgroundColor: Colors.brown[700],
                     ),
                     onPressed: () async {
 
@@ -98,6 +98,7 @@ class _DataPageState extends State<DataPage> {
 
                      if(response[1] == 201) {
                        showStatus(color: Colors.greenAccent, text: response[0].message);
+                       Navigator.pop(context);
                        Navigator.pop(context);
                      }
                      else {

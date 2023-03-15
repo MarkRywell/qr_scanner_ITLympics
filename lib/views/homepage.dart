@@ -64,6 +64,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         body: Container(
             padding: const EdgeInsets.symmetric(vertical: 50),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/logo1.png"),
+                opacity: 0.2
+              )
+            ),
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
@@ -91,18 +97,14 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Column(
                           children: const [
-                            Text("Eyes here, Lycan!",
+                            Text("Attendance QR Scanner",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               height: 1.5,
                               fontSize: 14
                             )),
                             SizedBox(height: 50),
-                            Text("Were you howling with excitement at Lycan Fest? "
-                                "Let us know! We'll be tracking attendance to make "
-                                "sure no one misses out. This attendance scanner is "
-                                "for the use of LYCAN FEST 2023 only. Be sure to mark "
-                                "your attendance here and let's double the fun.",
+                            Text("This application is intended for taking attendance of USTP students during the event.",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     height: 1.5,
